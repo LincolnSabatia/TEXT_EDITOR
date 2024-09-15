@@ -13,9 +13,8 @@ public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
      * @author  Lincolin sabatia
      */
 
-
         /**
-         * Returns the maximum number of elements in the list
+         * Returns the  number of elements in the list
          * If  size is greater Integer.MAX_VALUE, return Integer.MAX_VALUE
          * @return the  number of elements in the list
          */
@@ -25,14 +24,14 @@ public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
         /**
          * Returns {@code true} if this list contains no elements.
          *
-         * @return {@code true} if this list contains no elements
+         * @return {@code false} if this list has elements
          */
         boolean isEmpty();
 
         /**
          * Returns True if List contains the provide element
          */
-        boolean contains(Object o);
+        boolean contains(T element);
 
 
         /**
@@ -46,10 +45,10 @@ public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
         // Modification Operations
 
         /**
-         * Appends Elemmnt to the end of the list
+         * Appends Element to the end of the list
          *
          */
-        boolean add(T t);
+        boolean add(T element);
 
         /**
          * Removes the first occurrence of the specified element from this list,
@@ -66,10 +65,10 @@ public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
          * definition ensures that the equals method works properly across
          * different implementations of the {@code List} interface.
          *
-         * @param o the object to be compared for equality with this list
+         * @param T the object to be compared for equality with this list
          * @return {@code true} if the specified object is equal to this list
          */
-        boolean equals(Object o);
+        boolean equals(T element);
 
         // Positional Access Operations
 
@@ -105,8 +104,6 @@ public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
          *
          * @param index index at which the specified element is to be inserted
          * @param element element to be inserted
-         * @throws ClassCastException if the class of the specified element
-         *         prevents it from being added to this list
          * @throws NullPointerException if the specified element is null and
          *         this list does not permit null elements
          * @throws IndexOutOfBoundsException if the index is out of range
@@ -158,7 +155,7 @@ public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
         }
 
         /**
-ADds Element to the end of the list
+         * Adds Element to the end of the list
          * @throws NullPointerException
          */
         default void addLast(T e) {
@@ -202,8 +199,7 @@ ADds Element to the end of the list
         }
 
         /**
-         * {@inheritDoc}
-         *REmoves last element in the list
+         *Removes last element in the list
          * @throws NoSuchElementException
          */
         default T removeLast() {
