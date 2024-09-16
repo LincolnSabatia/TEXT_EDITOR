@@ -1,5 +1,6 @@
 package com.text.text_editor.DataStructures.Interfaces;
 
+import java.util.Collection;
 import java.util.NoSuchElementException;
 
 public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
@@ -146,6 +147,24 @@ public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
         int lastIndexOf(T oelement);
 
 
+    /**
+     * Removes all of the elements from this list (optional operation).
+     * The list will be empty after this call returns.
+     *
+     * @throws UnsupportedOperationException if the {@code clear} operation
+     *         is not supported by this list
+     */
+    void clear();
+
+    /**
+     * Removes from this list all of its elements that are contained in the
+     * specified collection (optional operation).
+     *
+     * @param c collection containing elements to be removed from this list
+     * @see #remove(Object)
+     * @see #contains(Object)
+     */
+    boolean removeAll(Collection<?> c);
 
         /**
          * Add T element to the first index and moving the rest to the right
@@ -153,6 +172,8 @@ public interface ListInterface<T extends Comparable<T> & Iterable<T>> {
         default void addFirst(T element) {
             this.add(0, element);
         }
+
+
 
         /**
          * Adds Element to the end of the list
